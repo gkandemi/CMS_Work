@@ -9,7 +9,7 @@
 # outputdir /afs/cern.ch/user/g/gkandemi/www/WFMon/
 
 
-cd /afs/cern.ch/user/g/cmst1/scratch0/SiteReadiness_Dashboard
+cd /afs/cern.ch/user/g/gkandemi/scratch0/SiteReadiness_Dashboard
 
 # Email if things are running slowly
 if [ -f scriptRunning.run ];

@@ -31,8 +31,8 @@ def extractSitesUnderPercentage(dataRows, percentageThreshold):   #kotu site'lar
     return sites  # %60 dan kucuk olan site'larin tutuldugu degisken...
 
 def main_function(outputfile_txt):
-  oneWeekDataRows = getData(url % '168', headers={"Accept":"application/json"}) #168 7*24 ile elde ediliyor bu sekilde son haftanin verileri cekilebiliyor.. 
-  threeMonthsDataRows = getData(url % '2184', headers={"Accept":"application/json"}) # 2184 91*24 ile elde ediliyor bu da son 3 ayin verilerini getiriyor.. 
+  oneWeekDataRows = getData(url % '48', headers={"Accept":"application/json"}) #168 7*24 ile elde ediliyor bu sekilde son haftanin verileri cekilebiliyor.. 
+  threeMonthsDataRows = getData(url % '72', headers={"Accept":"application/json"}) # 2184 91*24 ile elde ediliyor bu da son 3 ayin verilerini getiriyor.. 
 
   oneWeekBadSites = extractSitesUnderPercentage(oneWeekDataRows, percentageThreshold)  #Son Haftalik kotu site'larin cekilmesi ve degiskene aktarilmasiii... 
   threeMonthsBadSites = extractSitesUnderPercentage(threeMonthsDataRows, percentageThreshold) # son 3 aylik kotu site'larin cekilmesi ve degiskene aktarilmasi..
