@@ -2,14 +2,14 @@
 #
 # Sten Luyckx
 # Script in acrontab t1
-# 5,20,35,50 * * * * lxplus ssh vocms202 /afs/cern.ch/user/c/cmst1/scratch0/SiteReadiness_Dashboard/run_badSites_SiteReadiness.sh &> /dev/null 
+# 5,20,35,50 * * * * lxplus ssh vocms202 /afs/cern.ch/user/g/gkandemi/scratch0/SiteReadiness_Dashboard/run_badSites_SiteReadiness.sh &> /dev/null 
 # Green red if : site readiness percentage is bigger or smaller than 60 % for both the last week as in the last 3 months
 # Script for Dashboard metric 152: SiteReadiness 1W&3M (>60%) 
 # outputfile BadSites_SiteReadiness.txt
-# outputdir /afs/cern.ch/user/c/cmst1/www/WFMon/
+# outputdir /afs/cern.ch/user/g/gkandemi/www/WFMon/
 
 
-cd /afs/cern.ch/user/c/cmst1/scratch0/SiteReadiness_Dashboard
+cd /afs/cern.ch/user/g/cmst1/scratch0/SiteReadiness_Dashboard
 
 # Email if things are running slowly
 if [ -f scriptRunning.run ];
@@ -27,8 +27,8 @@ then
    fi
    touch emailmessage.txt
    EMAILMESSAGE="/tmp/emailmessage.txt"
-   echo "Run_badSites_SiteReadiness.sh  is running to slowly. See: /afs/cern.ch/user/c/cmst1/scratch0/SiteReadiness_Dashboard"> $EMAILMESSAGE
-   echo "/afs/cern.ch/user/c/cmst1/scratch0/SiteReadiness_Dashboard" >>$EMAILMESSAGE
+   echo "Run_badSites_SiteReadiness.sh  is running to slowly. See: /afs/cern.ch/user/g/gkandemi/scratch0/SiteReadiness_Dashboard"> $EMAILMESSAGE
+   echo "/afs/cern.ch/user/g/gkandemi/scratch0/SiteReadiness_Dashboard" >>$EMAILMESSAGE
    # send an email using /bin/mail
    /bin/mail -s "$SUBJECT" "$EMAIL" < $EMAILMESSAGE
 
@@ -46,7 +46,7 @@ python badsites_SiteReadiness.py $txt &> badSites_SiteReadiness.log
 problem="$?"
 echo "problem: $problem"
 
-cp $txt /afs/cern.ch/user/c/cmst1/www/WFMon/
-echo "files copied to: /afs/cern.ch/user/c/cmst1/www/WFMon/ "
+cp $txt /afs/cern.ch/user/g/gkandemi/www/WFMon/
+echo "files copied to: /afs/cern.ch/user/g/gkandemi/www/WFMon/ "
 rm scriptRunning.run
 
